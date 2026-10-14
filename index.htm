@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Ali! 🌌 Hubble's View</title>
+  
+  <!-- Modern Google Fonts for Space Theme -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #090a0f;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #3b82f6;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #60a5fa;
+    }
+
+    /* Cosmic Glow Effects */
+    .glow-title {
+      text-shadow: 0 0 20px rgba(96, 165, 250, 0.7), 0 0 40px rgba(147, 51, 234, 0.5);
+    }
+    .glow-sub {
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+    .card-glow {
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.67), 0 0 25px 2px rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+    .card-glow:hover {
+      box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.8), 0 0 35px 5px rgba(147, 51, 234, 0.3);
+      border: 1px solid rgba(147, 51, 234, 0.4);
+    }
+
+    /* Glassmorphism panel */
+    .glass-panel {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* Scroll Animation Reveal Classes */
+    .reveal-element {
+      opacity: 0;
+      transform: translateY(60px) scale(0.95);
+      transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-element.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Floating Canvas Background */
+    #stars-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-['Montserrat'] overflow-x-hidden min-h-screen">
+
+  <!-- Dynamic Starfield Canvas Background -->
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- Hero Section (Header) -->
+  <header class="min-h-screen flex flex-col justify-center items-center text-center px-4 relative z-10 py-20">
+    <div class="max-w-4xl mx-auto space-y-6">
+      
+      <div class="inline-block px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/30 text-blue-300 text-xs sm:text-sm font-semibold tracking-widest uppercase mb-2 animate-pulse">
+        ✨ October 20 Special Edition ✨
+      </div>
+
+      <h1 class="font-['Orbitron'] text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400 glow-title leading-tight">
+        Happy birthday Ali!
+      </h1>
+
+      <p class="text-base sm:text-xl md:text-2xl text-slate-300 max-w-2xl mx-auto font-light leading-relaxed glow-sub pt-2">
+        Wanna see how the space looks in your special day? <br class="hidden sm:block">
+        <span class="text-blue-300 font-normal">(Or what did Hubble see to be exact 🤓)</span>
+      </p>
+
+      <!-- Scroll Indicator Button -->
+      <div class="pt-12 flex flex-col items-center justify-center space-y-3 cursor-pointer opacity-80 hover:opacity-100 transition-opacity" onclick="scrollToFirstCard()">
+        <span class="text-xs tracking-widest text-slate-400 uppercase font-['Orbitron']">Scroll To Explore</span>
+        <div class="w-6 h-10 border-2 border-slate-400 rounded-full flex justify-center p-1">
+          <div class="w-1.5 h-3 bg-blue-400 rounded-full animate-bounce"></div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Showcase Content -->
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 pb-32 space-y-28 relative z-10" id="cards-container">
+
+    <!-- Card 1: 30 Doradus Nebula -->
+    <article class="reveal-element glass-panel rounded-3xl p-6 sm:p-10 card-glow transition-all duration-500">
+      <div class="space-y-6">
+        <div class="flex items-center space-x-3 text-blue-400 text-sm font-['Orbitron'] uppercase tracking-wider">
+          <span class="w-2.5 h-2.5 rounded-full bg-blue-400 animate-ping inline-block"></span>
+          <span>Cosmic Discovery #01</span>
+        </div>
+        
+        <h2 class="font-['Orbitron'] text-2xl sm:text-4xl font-bold text-white tracking-wide">
+          30 Doradus Nebula
+        </h2>
+
+        <div class="relative overflow-hidden rounded-2xl group shadow-2xl">
+          <img 
+            src="https://science.nasa.gov/specials/apps/what-did-hubble-see-on-your-birthday/images/october-20-2009-30-doradus-nebula.jpg" 
+            alt="30 Doradus Nebula" 
+            class="w-full h-[320px] sm:h-[480px] object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
+            loading="lazy"
+            onerror="this.src='https://placehold.co/1200x800/0b0f19/60a5fa?text=30+Doradus+Nebula'"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60"></div>
+        </div>
+
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-light pt-2">
+          30 Doradus is a large nebula where new stars are born. It contains a huge group of young stars called R136 and is located in a nearby galaxy called the Large Magellanic Cloud.
+        </p>
+      </div>
+    </article>
+
+    <!-- Card 2: Stars in the Galactic Core -->
+    <article class="reveal-element glass-panel rounded-3xl p-6 sm:p-10 card-glow transition-all duration-500">
+      <div class="space-y-6">
+        <div class="flex items-center space-x-3 text-indigo-400 text-sm font-['Orbitron'] uppercase tracking-wider">
+          <span class="w-2.5 h-2.5 rounded-full bg-indigo-400 animate-ping inline-block"></span>
+          <span>Cosmic Discovery #02</span>
+        </div>
+
+        <h2 class="font-['Orbitron'] text-2xl sm:text-4xl font-bold text-white tracking-wide">
+          Stars in the Galactic Core
+        </h2>
+
+        <div class="relative overflow-hidden rounded-2xl group shadow-2xl">
+          <img 
+            src="https://science.nasa.gov/specials/apps/what-did-hubble-see-on-your-birthday/images/october-20-2011-milky-way-bulge.jpg" 
+            alt="Stars in the Galactic Core" 
+            class="w-full h-[320px] sm:h-[480px] object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
+            loading="lazy"
+            onerror="this.src='https://placehold.co/1200x800/0b0f19/818cf8?text=Galactic+Core+Stars'"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60"></div>
+        </div>
+
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-light pt-2">
+          These colorful stars are near the center of our Milky Way galaxy, about 26,000 light-years from Earth. This region contains old, red giant stars and younger, white stars like our Sun.
+        </p>
+      </div>
+    </article>
+
+    <!-- Card 3: Spiral Galaxy NGC 2442 -->
+    <article class="reveal-element glass-panel rounded-3xl p-6 sm:p-10 card-glow transition-all duration-500">
+      <div class="space-y-6">
+        <div class="flex items-center space-x-3 text-purple-400 text-sm font-['Orbitron'] uppercase tracking-wider">
+          <span class="w-2.5 h-2.5 rounded-full bg-purple-400 animate-ping inline-block"></span>
+          <span>Cosmic Discovery #03</span>
+        </div>
+
+        <h2 class="font-['Orbitron'] text-2xl sm:text-4xl font-bold text-white tracking-wide">
+          Spiral Galaxy NGC 2442
+        </h2>
+
+        <div class="relative overflow-hidden rounded-2xl group shadow-2xl">
+          <img 
+            src="https://science.nasa.gov/specials/apps/what-did-hubble-see-on-your-birthday/images/october-20-2006-ngc-2442.jpg" 
+            alt="Spiral Galaxy NGC 2442" 
+            class="w-full h-[320px] sm:h-[480px] object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
+            loading="lazy"
+            onerror="this.src='https://placehold.co/1200x800/0b0f19/c084fc?text=NGC+2442+Galaxy'"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60"></div>
+        </div>
+
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-light pt-2">
+          NGC 2442 is a galaxy with an unusual shape, so it is called the Meathook Galaxy. A star in this galaxy exploded in a supernova called SN 2015F.
+        </p>
+      </div>
+    </article>
+
+    <!-- Card 4: Irregular Galaxy I Zwicky 18 -->
+    <article class="reveal-element glass-panel rounded-3xl p-6 sm:p-10 card-glow transition-all duration-500">
+      <div class="space-y-6">
+        <div class="flex items-center space-x-3 text-pink-400 text-sm font-['Orbitron'] uppercase tracking-wider">
+          <span class="w-2.5 h-2.5 rounded-full bg-pink-400 animate-ping inline-block"></span>
+          <span>Cosmic Discovery #04</span>
+        </div>
+
+        <h2 class="font-['Orbitron'] text-2xl sm:text-4xl font-bold text-white tracking-wide">
+          Irregular Galaxy I Zwicky 18
+        </h2>
+
+        <div class="relative overflow-hidden rounded-2xl group shadow-2xl">
+          <img 
+            src="https://science.nasa.gov/specials/apps/what-did-hubble-see-on-your-birthday/images/october-20-2005-i-zwicky-18.jpg" 
+            alt="Irregular Galaxy I Zwicky 18" 
+            class="w-full h-[320px] sm:h-[480px] object-cover object-center transform group-hover:scale-105 transition-transform duration-700 ease-out"
+            loading="lazy"
+            onerror="this.src='https://placehold.co/1200x800/0b0f19/f472b6?text=I+Zwicky+18'"
+          >
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60"></div>
+        </div>
+
+        <p class="text-slate-300 text-base sm:text-lg leading-relaxed font-light pt-2">
+          This galaxy looks young, but Hubble found old stars inside it. This suggests that it may be as old as most other galaxies.
+        </p>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="py-12 text-center text-slate-400 text-sm font-light border-t border-slate-800/60 glass-panel">
+    <p class="font-['Orbitron'] text-xs tracking-widest uppercase text-slate-400">Made With ✨ For Ali's Birthday</p>
+    <p class="text-slate-500 text-xs mt-2">Data & Images provided by NASA Hubble Space Telescope Archive</p>
+  </footer>
+
+  <!-- JavaScript Logic for Canvas Stars & Scroll Reveal -->
+  <script>
+    // 1. Smooth Scroll to first card
+    function scrollToFirstCard() {
+      const container = document.getElementById('cards-container');
+      container.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // 2. IntersectionObserver for Reveal Animations on Scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const revealElements = document.querySelectorAll('.reveal-element');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -100px 0px', // triggers slightly before entering view
+        threshold: 0.15
+      };
+
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, observerOptions);
+
+      revealElements.forEach(el => revealObserver.observe(el));
+    });
+
+    // 3. Dynamic Animated Cosmic Canvas (Stars & Nebulae Particles)
+    const canvas = document.getElementById('stars-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let stars = [];
+    let width = 0;
+    let height = 0;
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initStars();
+    }
+
+    function initStars() {
+      stars = [];
+      const numStars = Math.floor((width * height) / 3000); // Responsive star density
+      for (let i = 0; i < numStars; i++) {
+        stars.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.5 + 0.2,
+          alpha: Math.random(),
+          speed: Math.random() * 0.015 + 0.005,
+          color: getRandomStarColor()
+        });
+      }
+    }
+
+    function getRandomStarColor() {
+      const colors = ['#ffffff', '#93c5fd', '#c084fc', '#f472b6', '#60a5fa'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function animateStars() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Draw faint background nebula glow
+      const bgGlow = ctx.createRadialGradient(width / 2, height / 2, 100, width / 2, height / 2, width);
+      bgGlow.addColorStop(0, '#0f172a');
+      bgGlow.addColorStop(0.5, '#090d16');
+      bgGlow.addColorStop(1, '#030712');
+      ctx.fillStyle = bgGlow;
+      ctx.fillRect(0, 0, width, height);
+
+      // Render twinkling stars
+      stars.forEach(star => {
+        star.alpha += star.speed;
+        if (star.alpha > 1 || star.alpha < 0) {
+          star.speed = -star.speed;
+        }
+
+        ctx.save();
+        ctx.globalAlpha = Math.max(0.1, star.alpha);
+        ctx.fillStyle = star.color;
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      });
+
+      requestAnimationFrame(animateStars);
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Initial Setup
+    resizeCanvas();
+    animateStars();
+  </script>
+</body>
+</html>
